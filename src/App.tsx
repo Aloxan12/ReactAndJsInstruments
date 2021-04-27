@@ -8,7 +8,7 @@ function App() {
 
     return (
         <div className="App">
-            <Clock />
+            <Clock mode={"digital"} />
         </div>
     );
 }

@@ -7,7 +7,9 @@ export default {
     component: Clock
 }
 
-export const BaseExample= () =><Clock />;
-export const BaseExample2= () =><Clock />;
+export const DigitalClock= () =><Clock mode={"digital"} />;
+
+
+export const AnalogClock= () =><Clock mode={"analog"} />;
 
 
