@@ -24,8 +24,9 @@ export const Counter=()=>{
         localStorage.clear()
         setValue(0)
     }
+
     return(
-        <div>
+        <div style={{textAlign: 'center'}}>
             <h1>{value}</h1>
             <button onClick={incHandler}>+</button>
             <button onClick={clearLocalStorage}>clearLocalStorage</button>
