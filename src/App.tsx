@@ -1,16 +1,13 @@
 import React from 'react';
 import './App.css';
-import {Clock} from "./components/Clock/Clock";
-import {Counter} from "./components/Localstorage/counter";
-import {CounterWithRedux} from "./components/Localstorage/counterWithRedux";
-
+import {DragAndDrop} from "./components/DragAndDrop/DragAndDrop";
 
 
 function App() {
 
     return (
         <div className="App">
-            <CounterWithRedux />
+            <DragAndDrop />
         </div>
     );
 }
