@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {DragAndDrop} from "./components/DragAndDrop/DragAndDrop";
+import {GeneratorAndSaga} from "./GeneratorAndSaga/GeneratorAndSaga";
 
 
 function App() {
 
     return (
         <div className="App">
-            <DragAndDrop />
+            <GeneratorAndSaga />
         </div>
     );
 }
