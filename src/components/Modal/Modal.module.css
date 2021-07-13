@@ -17,8 +17,7 @@
     pointer-events: all;
 }
 .modalContent{
-    height: 400px;
-    width: 400px;
+    width: 50vh;
     padding: 20px;
     text-align: center;
     vertical-align: center;
