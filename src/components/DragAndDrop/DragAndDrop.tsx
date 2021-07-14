@@ -49,7 +49,7 @@ export const DragAndDrop=()=>{
     return(
         <div className={style.container}>
             {cardList.map(c=>{
-                return <div draggable="true"
+                return <div draggable={true}
                             onDragStart={(e)=>dragStartHandler(e, c)}
                             onDragLeave={(e)=>dragEndHandler(e)}
                             onDragEnd={(e)=>dragEndHandler(e)}
