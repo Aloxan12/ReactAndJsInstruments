@@ -7,8 +7,10 @@
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    margin-top: 100px;
+    flex-direction: row;
+    justify-content:center;
+    text-align: center;
 }
 .board{
     min-width: 300px;
