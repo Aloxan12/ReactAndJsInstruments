@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {MentorsStudents} from "./components/DragAndDrop/MentorsStudents";
+import {CountGame} from "./components/hooks/useState";
 
 
 function App() {
 
     return (
         <div className="App">
-            <MentorsStudents />
+            <CountGame />
         </div>
     );
 }
