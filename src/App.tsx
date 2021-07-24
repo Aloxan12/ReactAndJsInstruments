@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {CountGame} from "./components/hooks/useState";
+import {FormWithUseState} from "./components/hooks/useState";
 
 
 function App() {
 
     return (
         <div className="App">
-            <CountGame />
+            <FormWithUseState />
         </div>
     );
 }
