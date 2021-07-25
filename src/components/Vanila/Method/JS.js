@@ -1,6 +1,5 @@
-
-const citiesRussia = ['moscow', 'piter', 'kayzan']
-const citiesEurope = ['Berlin', 'Check Repablic', 'Paris']
+const citiesRussia = ['Moscow', 'SaintPetersburg', 'Kazan']
+const citiesEurope = ['Berlin', 'Prague', 'Paris']
 
 //spread
 console.log(...citiesRussia)

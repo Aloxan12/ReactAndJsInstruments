@@ -12,6 +12,11 @@ function mapC(arr, mapCallback){
         return result;
     }
 }
+const a = [1, 2 , 3, 4]
+let vaa = {
+    nana: 'boy'
+}
+vaa.set();
 
 function filter(arr, filterCallback) {
     // проверяем передаваемые параметры
