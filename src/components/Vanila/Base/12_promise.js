@@ -79,13 +79,6 @@ p1.then((res)=>{
     return console.log(res)
 })
 
-let a = 100;
-
-const say =()=>{
-    a = 200
-}
-
-console.log(a)
 
 
 
