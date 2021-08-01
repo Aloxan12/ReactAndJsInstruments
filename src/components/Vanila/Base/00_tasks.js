@@ -12,6 +12,15 @@
 // }
 //
 // console.log(factorial(7))
+// const num = {num: 5}
+// const number = 5
+// const str = 'valenok'
+// String.prototype.retNum = function (){
+//     return this.toUpperCase()
+// }
+// console.log(str.retNum())
+
+
 
 //Promise
 // const api = {};
@@ -25,11 +34,16 @@
 // console.log(api.sendNumber())
 // const pr = new Promise((resolve, reject)=> reject('100500'))
 // pr.catch(res => console.log(res))
-async function start(){
-    return 100
-}
+// async function start(){
+//     return 100
+// }
 
-console.log(start())
+setTimeout(()=>console.log(2), 0)
+console.log(1)
+const pr = new Promise((res, rej)=>{
+    console.log(3)
+    setTimeout(()=>res(4), 0)
+}).then(res => console.log(res))
 
 
 //Deep copy
