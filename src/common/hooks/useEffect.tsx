@@ -2,7 +2,10 @@ import React, {useEffect, useState} from "react";
 
 export const Users=()=>{
     const [type, setType] = useState('users')
-    const [data, setData] = useState('users')
+    const [data, setData] = useState([])
+    const [pos, setPos] = useState({
+        x: 0, y: 0
+    })
     console.log('Component render')
 
     useEffect(()=>{
@@ -10,6 +13,26 @@ export const Users=()=>{
             .then(res => res.json())
             .then(json => setData(json))
     }, [type])
+
+
+    const mouseMoveHandler = (event: MouseEvent)=>{
+        setPos({
+            x: event.clientX,
+            y: event.clientY
+        })
+    }
+
+    useEffect(()=>{
+        console.log('ComponentDidMount')
+
+        window.addEventListener('mousemove', mouseMoveHandler )
+
+        return ()=>{
+            window.removeEventListener('mousemove', mouseMoveHandler )
+        }
+    },[])
+
+
     useEffect(()=>{
         console.log('render')
     }, [])
@@ -22,7 +45,8 @@ export const Users=()=>{
             <button onClick={()=> setType('todos')}>Todos</button>
             <button onClick={()=> setType('posts')}>Посты</button>
 
-            <pre>{JSON.stringify(data, null, 2)}</pre>
+            {/*<pre>{JSON.stringify(data, null, 2)}</pre>*/}
+            <pre>{JSON.stringify(pos, null, 2)}</pre>
         </div>
     )
 }

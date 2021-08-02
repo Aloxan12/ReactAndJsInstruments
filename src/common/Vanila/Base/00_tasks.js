@@ -38,13 +38,33 @@
 //     return 100
 // }
 
-setTimeout(()=>console.log(2), 0)
-console.log(1)
-const pr = new Promise((res, rej)=>{
-    console.log(3)
-    setTimeout(()=>res(4), 0)
-}).then(res => console.log(res))
+// setTimeout(()=>console.log(2), 1000)
+// setTimeout(()=>console.log(1), 0)
+//
+//
+//
+// const pr = new Promise((res, rej)=>{
+//
+//     setTimeout(()=>res(3), 0)
+// }).then(res => console.log())
 
+
+const doAsyncTask = () => Promise.resolve('done');
+const asyncFunc = async function() {
+    const val = await doAsyncTask();
+    console.log(val); //1
+    console.log("done2"); //2
+    return "done3"
+}
+
+asyncFunc().then(val => console.log(val)); //3
+
+
+// for (var i = 0; i < 10; i++) {
+//     ((i)=>setTimeout(function () {
+//         console.log(i);
+//     }, 100))(i)
+// }
 
 //Deep copy
 // const obj = {

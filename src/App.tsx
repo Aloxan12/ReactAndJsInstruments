@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {FormWithUseState} from "./components/hooks/useState";
+import {FormWithUseState} from "./common/hooks/useState";
 
 
 function App() {
