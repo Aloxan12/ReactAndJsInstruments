@@ -18,5 +18,5 @@ Array.prototype.customReduce = function (callback, initial) {
     }
     return accumulator;
 }
-const filteredList = list.customReduce(elem => elem > 3)
+const filteredList = list.customReduce((a,b)=> a + b, 0)
 console.log(filteredList)
