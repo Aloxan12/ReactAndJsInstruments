@@ -186,27 +186,48 @@
 // console.log(4);
 
 
-for (let i = 1; i <= 5; i++) {
-    setTimeout(() => {
-        console.log(i);
-    }, 0);
-}
-for (var i = 1; i <= 5; i++) {
-    ((i) => {
-        setTimeout(() => {
-            console.log(i);
-        }, 0)
-    })(i)
-}
-for (var i = 1; i <= 5; i++) {
-    (() => {
-        var j = i
-        setTimeout(function () {
-            console.log(j);
-        }, 0)
-    })()
-}
-((e)=>{
-    e.stopPropagation()
-    e.stop
-})()
+// for (let i = 1; i <= 5; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 0);
+// }
+// for (var i = 1; i <= 5; i++) {
+//     ((i) => {
+//         setTimeout(() => {
+//             console.log(i);
+//         }, 0)
+//     })(i)
+// }
+// for (var i = 1; i <= 5; i++) {
+//     (() => {
+//         var j = i
+//         setTimeout(function () {
+//             console.log(j);
+//         }, 0)
+//     })()
+// }
+// ((e)=>{
+//     e.stopPropagation()
+//     e.stop
+// })()
+
+// console.log(typeof ("" + 1 + 0))
+// console.log("" - 1 + 0)
+// console.log("2" * "3")
+// console.log(2 && 5)
+// console.log(5 || 0)
+// console.log(null + 1)
+// console.log(undefined + 1)
+// console.log(['x'] == 'x')
+// console.log()
+
+// const arr = [1,3,4,5,6]
+// const obj = {
+//     1: 9,
+//     2: 8,
+//     3: 7
+// }
+//
+// for (let value in obj){
+//     console.log(value)
+// }
