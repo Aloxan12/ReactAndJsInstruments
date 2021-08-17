@@ -22,13 +22,12 @@
 // const dog = new Animal('Bob', 5)
 // console.log(dog.GetNameAge())
 
-exampleArray = [{id: 2, title: 'Two'}, {id: 3, title: 'Three'}, {id: 1, title: 'One'}];
-function mapper(arr) {
-    const newArr = arr.reduce((acc, item)=> ({...acc, [item.id]:item.title}),{})
-    return newArr
-}
-console.log(mapper(exampleArray)); // { '2': 'Two', '3': 'Three', '1': 'One' }
-
+// exampleArray = [{id: 2, title: 'Two'}, {id: 3, title: 'Three'}, {id: 1, title: 'One'}];
+// function mapper(arr) {
+//     const newArr = arr.reduce((acc, item)=> ({...acc, [item.id]:item.title}),{})
+//     return newArr
+// }
+// console.log(mapper(exampleArray)); // { '2': 'Two', '3': 'Three', '1': 'One' }
 
 // const arr = [2, 2, 2, 3] // [7, 5, 8]
 // const sumArr = (arr)=>{
@@ -36,7 +35,6 @@ console.log(mapper(exampleArray)); // { '2': 'Two', '3': 'Three', '1': 'One' }
 //     return newArr
 // }
 // console.log(sumArr(arr))
-
 
 // const arr = [
 //     {id: [{name: "1"}, {name: "2"}], num: "1"},
@@ -50,3 +48,28 @@ console.log(mapper(exampleArray)); // { '2': 'Two', '3': 'Three', '1': 'One' }
 //     return result
 // }
 // console.log(callArr3(arr));
+
+const array1 = ["one"];
+const array2 = ["two", "three"];
+const array3 = ["one", "two", "three", "six"];
+const array4 = [];
+
+const obj = {
+    one: ["testOne1", "testOne2"],
+    two: ["testTwo1", "testTwo2"],
+    three: ["testThree1", "testThree2"],
+    four: ["testFour1", "testFour1"],
+    five: ["testFive1", "testFive1"],
+    six: ["testSix1", "testSix2"],
+    seven: ["testSeven1", "testSeven1"]
+}
+
+const myFunc = (arr, data) => {
+    const newArr2 = arr.reduce((acc, item)=> [...acc, data[item]], []).reduce((acc, item)=> [...acc, ...item], [])
+    return newArr2
+};
+
+//console.log(myFunc(array1, obj)); // return ['testOne1', 'testOne2']
+console.log(myFunc(array2, obj)); // return ['testTwo1', 'testTwo2', 'testThree1', 'testThree2']
+//console.log(myFunc(array3, obj)); // return ['testOne1', 'testOne2', 'testTwo1', 'testTwo2', 'testThree1', 'testThree2', 'testSix1', 'testSix2']
+//console.log(myFunc(array4, obj)); // return []
