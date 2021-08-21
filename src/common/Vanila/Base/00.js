@@ -71,20 +71,70 @@
 //console.log(myFunc(array3, obj)); // return ['testOne1', 'testOne2', 'testTwo1', 'testTwo2', 'testThree1', 'testThree2', 'testSix1', 'testSix2']
 //console.log(myFunc(array4, obj)); // return []
 
+//
+// let strin = 'Lets go to the movies'
+// let strin2 = 'Why isn\'t my code working?'
+//
+//
+// function format(str) {
+//     const s = str.length;
+//     const chars = str.split('');
+//     const strWithSpaces = chars.reduceRight((acc, char, i) => {
+//         const spaceOrNothing = ((((s - i) % 1) === 0) ? ' ' : '');
+//         return (spaceOrNothing + char + acc);
+//     }, '');
+//     let result = ((strWithSpaces[0] === ' ') ? strWithSpaces.slice(1) : strWithSpaces).toUpperCase();
+//     return result.replace(/ +/g, ' ').trim()
+// }
+//
+// console.log(format(strin2))
 
-let strin = 'Lets go to the movies'
-let strin2 = 'Why isn\'t my code working?'
+// const str = 'Yes'
+// const str2 = 'no?'
+// function ensureQuestion(s) {
+//     let last = s.toString().slice(-1)
+//     const result = last === '?'? s : s + '?'
+//     return result
+// }
+// console.log(ensureQuestion(str2))
 
+// function add(a,b){
+//     return a+b;
+// }
+// function divide(a,b){
+//     return a/b;
+// }
+// function multiply(a,b){
+//     return a*b;
+// }
+// function mod(a,b){
+//     return a%b;
+// }
+// function exponent(a,b){
+//     return Math.pow(a, b);
+// }
+// function subt(a,b){
+//     return a-b;
+// }
+// console.log(add(1,2))
+// console.log(multiply(1,2))
+// console.log(divide(2,1))
+// console.log(mod(1,2))
+// console.log(exponent(1,2))
+// console.log(subt(1,2))
 
-function format(str) {
-    const s = str.length;
-    const chars = str.split('');
-    const strWithSpaces = chars.reduceRight((acc, char, i) => {
-        const spaceOrNothing = ((((s - i) % 1) === 0) ? ' ' : '');
-        return (spaceOrNothing + char + acc);
-    }, '');
-    let result = ((strWithSpaces[0] === ' ') ? strWithSpaces.slice(1) : strWithSpaces).toUpperCase();
-    return result.replace(/ +/g, ' ').trim()
+// const string = 'Hi Alex'
+// function reverseWords(str){
+//     let result = str.split(' ').reverse().join(' ');
+//     return result
+// }
+// console.log(reverseWords(string))
+
+function nextChar(c) {
+    return String.fromCharCode(c.charCodeAt(0) + 1);
 }
+console.log(nextChar('a'))
 
-console.log(format(strin2))
+
+
+
