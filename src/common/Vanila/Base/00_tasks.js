@@ -184,8 +184,6 @@
 // print1234();
 //
 // console.log(4);
-
-
 // for (let i = 1; i <= 5; i++) {
 //     setTimeout(() => {
 //         console.log(i);
@@ -210,7 +208,6 @@
 //     e.stopPropagation()
 //     e.stop
 // })()
-
 // console.log(typeof ("" + 1 + 0))
 // console.log("" - 1 + 0)
 // console.log("2" * "3")
@@ -220,7 +217,6 @@
 // console.log(undefined + 1)
 // console.log(['x'] == 'x')
 // console.log()
-
 // const arr = [1,3,4,5,6]
 // const obj = {
 //     1: 9,

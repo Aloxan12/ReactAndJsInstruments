@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {FormWithUseState} from "./common/hooks/useState";
+import {Github} from "./common/hooks/useEffect2";
 
 
 function App() {
 
     return (
         <div className="App">
-            <FormWithUseState />
+            <Github />
         </div>
     );
 }
