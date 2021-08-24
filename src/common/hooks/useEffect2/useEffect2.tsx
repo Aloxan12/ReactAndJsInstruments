@@ -20,8 +20,8 @@ export const Github = () => {
     const [selectedUser, setSelectedUser] = useState<SearchUserType | null>(null)
     const [userDetails, setUserDetails] = useState<UserType | null>(null)
     const [usersGH, setUsersGH] = useState<SearchUserType[]>([])
-    const [tempSearch, setTempSearch] = useState('it-kamasutra')
-    const [searchTerm, setSearchTerm] = useState('it')
+    const [tempSearch, setTempSearch] = useState('i')
+    const [searchTerm, setSearchTerm] = useState('')
 
     useEffect(() => {
         if (selectedUser) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {Github} from "./common/hooks/useEffect2";
+import {Github} from "./common/hooks/useEffect2/useEffect";
 
 
 function App() {
