@@ -1,4 +1,6 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+import {SearchUserType} from "./Users";
 
 
 export type UserType = {
@@ -9,10 +11,21 @@ export type UserType = {
 }
 
 type DetailsType = {
-    userDetails: UserType | null
+    selectedUser: SearchUserType | null
 }
 
-export const Details:React.FC<DetailsType> = ({userDetails, children}) => {
+export const Details: React.FC<DetailsType> = ({selectedUser}) => {
+    const [userDetails, setUserDetails] = useState<UserType | null>(null)
+
+    useEffect(() => {
+        if (!!selectedUser) {
+            axios.get<UserType>(`https://api.github.com/users/${selectedUser.login}`)
+                .then(res => {
+                    setUserDetails(res.data)
+                })
+        }
+    }, [selectedUser])
+
     return (
         <>
             <h2>Username</h2>

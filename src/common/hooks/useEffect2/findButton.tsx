@@ -1,12 +1,19 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
+import {SearchUserType} from "./Users";
 
 type FindButtonType = {
-    tempSearch: string
-    setTempSearch: (value: string)=> void
-    setSearchTerm: (value: string)=> void
+    onSubmit: (value: string)=> void
+    value: SearchUserType | null
 }
 
-export const FindButton:React.FC<FindButtonType> = ({tempSearch, setTempSearch, setSearchTerm}) => {
+export const FindButton:React.FC<FindButtonType> = ({value, onSubmit}) => {
+    const [tempSearch, setTempSearch] = useState('')
+
+    useEffect(() => {
+        if (value) {
+            document.title = value.login
+        }
+    }, [value])
 
     return (
         <div>
@@ -15,7 +22,7 @@ export const FindButton:React.FC<FindButtonType> = ({tempSearch, setTempSearch, 
             }} placeholder={'search...'}/>
             <button
                 onClick={() =>
-                    setSearchTerm(tempSearch)}
+                    onSubmit(tempSearch)}
             >Find
             </button>
         </div>
