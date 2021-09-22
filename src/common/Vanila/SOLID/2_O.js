@@ -110,4 +110,3 @@ const calc = new AreaCalculator([
     new Rect(10, 20),
     new Triangle(10, 15),
 ])
-console.log(calc.sum())
