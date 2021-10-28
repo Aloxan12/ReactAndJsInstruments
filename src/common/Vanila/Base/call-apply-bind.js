@@ -43,9 +43,29 @@ function bind4(fn, context, ...rest){
         return fn.call(context, ...rest.concat(args))
     }
 }
+//Call
 
+function call(fn, context, ...args){
+    const uniqId = Date.now().toString()
+    context[uniqId] = fn
 
+    const result = context[uniqId](...args)
 
+    delete context[uniqId]
+    return result
+}
+
+//apply
+
+function apply(fn, context, args){
+    const uniqId = Date.now().toString()
+    context[uniqId] = fn
+
+    const result = context[uniqId](...args)
+
+    delete context[uniqId]
+    return result
+}
 
 
 
