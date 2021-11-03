@@ -1,3 +1,5 @@
+import { setInterval } from "timers";
+
 const citiesRussia = ['Moscow', 'SaintPetersburg', 'Kazan']
 const citiesEurope = ['Berlin', 'Prague', 'Paris']
 
@@ -31,3 +33,37 @@ function sum(a, b, ...arg){
 }
 //!!Spread
 console.log(sum(...numbers))
+
+
+function throttle (func, ms){
+    let isThrottle = false;
+    let savedArgs;
+    let savedThis;
+
+    function wrapper(){
+        if(isThrottle){
+            savedArgs = arguments;
+            savedThis = this;
+            return;
+        }
+        func.apply(this, arguments);
+
+        isThrottle = true;
+
+        setTimeout(function(){
+            isThrottle = false;
+            if(savedArgs){
+                wrapper.apply(savedThis, savedArgs);
+                savedArgs = savedThis = null;
+            }
+        },ms)
+    }
+    return wrapper;
+}
+
+// function mouseMove(){
+//     console.log(new Date())
+// }
+
+// mouseMove = throttle (mouseMove, 3000)
+// setInterval(mouseMove, 1000)
