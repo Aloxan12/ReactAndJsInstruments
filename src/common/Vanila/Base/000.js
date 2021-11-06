@@ -1,18 +1,20 @@
+// function Bike(model, color){
+//     this.model = model;
+//     this.color = color;
+// }
+// Bike.prototype.getDetails = function (){
+//     return this.model + ' bike has ' + this.color + ' color';
+// }
 
-const arr = [1,2,4,8,5,6]
-
-const maxArr = Math.max(...arr)
-
-console.log(maxArr)
-
-const sum = arr.reduce((acc, num)=> +acc + num, [])
-console.log(sum)
-
-const summm=()=>{
-    return this
+class Bike {
+    constructor(model, color) {
+        this.model = model;
+        this.color = color;
+    }
+    getDetails(){
+        return this.model + ' bike has ' + this.color + ' color';
+    }
 }
-console.log(summm())
+const bike = new Bike('BMX', 'Black')
 
-const text = 'Ponsse wew8 de'
-
-console.log(text.split(' ').slice(1).join(' '))
+console.log(bike.getDetails())
