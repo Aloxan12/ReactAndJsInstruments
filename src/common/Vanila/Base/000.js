@@ -63,3 +63,17 @@
 
 const arrSort = [11, 5, 4, 61, 23, 66, 24, 10, 3, 7]
 
+function func(arr) {
+    let newArr = arr.filter(el => el % 2 != 0).sort((a, b) => a - b);
+    let copyArr = [...arr];
+    let a = 0;
+    copyArr.forEach((el, index) => {
+        if (el % 2 != 0){
+            copyArr[index] = newArr[a];
+            a = a + 1;
+        }
+    });
+    return copyArr;
+
+}
+console.log(undefined === null)
