@@ -227,3 +227,64 @@
 // for (let value in obj){
 //     console.log(value)
 // }
+
+
+// //===============================================
+// const input1 = [1, 2, 2, 1]
+// const input2 = [2, 2]
+// // Output: [2,2]
+//
+// const input3 = [4, 9, 5]
+// const input4 = [9, 4, 9, 8, 4]
+// // Output: [4,9] or [9, 4]
+//
+// const intersect = function (num1, num2) {
+//     let result = []
+//
+//     let map = num1.reduce((acc, i) => {
+//         acc[i] = acc[i] ? acc[i] + 1 : 1;
+//         return acc;
+//     }, {});
+//
+//     for (let i = 0; i < num2.length; i++) {
+//         const current = num2[i];
+//         let count = map[current];
+//
+//         if(count && count > 0){
+//             result.push(current);
+//             map[current] -= 1;
+//         }
+//     }
+//
+//     return result
+// }
+// console.log(intersect(input1, input2))
+// console.log(intersect(input3, input4))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
