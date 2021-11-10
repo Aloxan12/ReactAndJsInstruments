@@ -60,6 +60,8 @@
 // }
 //
 // console.log(toUpperStr(string))
+const tempInKelvin = 276.03
+const celsiusTemp = Math.floor(tempInKelvin) - 273;
 
 const arrSort = [11, 5, 4, 61, 23, 66, 24, 10, 3, 7]
 
