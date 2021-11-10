@@ -261,6 +261,46 @@
 // console.log(intersect(input1, input2))
 // console.log(intersect(input3, input4))
 
+// let str = 'bar';
+// str[0] = 'v';
+// console.log(str[0])
+//
+// let obj = { 1: 90}
+//
+// obj['1'] = 80
+// console.log(obj)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
