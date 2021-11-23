@@ -1,4 +1,5 @@
 import {ChangeEvent, useState} from "react";
+import style from './Valid.module.css';
 import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
 export const Valid =()=>{
@@ -16,9 +17,21 @@ export const Valid =()=>{
     }
 
     return (
-        <div>
-            <input type="text" value={inputText} onChange={(e)=>{setInputText(e.currentTarget.value)}}/>
-            <input type="password" value={inputPassword} onChange={(e)=>{setInputPassword(e.currentTarget.value)}}/>
+        <form className={style.form}>
+            <input
+                type="text"
+                className={style.input}
+                value={inputText}
+                onChange={(e)=>{setInputText(e.currentTarget.value)}}
+                placeholder='Введите логин'
+            />
+            <input
+                type="password"
+                className={style.input}
+                value={inputPassword}
+                onChange={(e)=>{setInputPassword(e.currentTarget.value)}}
+                placeholder='Введите пароль'
+            />
             <div>
                 <CountryDropdown
                     value={inputCountry.country}
@@ -28,7 +41,7 @@ export const Valid =()=>{
                     value={inputRegion.region}
                     onChange={(val) => selectRegion(val)} />
             </div>
-            <button>Отправвить</button>
-        </div>
+            <button className={style.btn}>Отправвить</button>
+        </form>
     )
 }
