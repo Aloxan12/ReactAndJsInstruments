@@ -1,14 +1,33 @@
-import {ChangeEvent, FormEvent, useState} from "react";
+import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import style from './Valid.module.css';
-import {CountryDropdown, RegionDropdown, CountryRegionData} from 'react-country-region-selector';
+import {CountryDropdown, RegionDropdown} from 'react-country-region-selector';
+import {useForm, Controller} from "react-hook-form";
+import InputMask from "react-input-mask";
+
+
+
 
 export const Valid = () => {
     const [inputText, setInputText] = useState('')
     const [inputEmail, setInputEmail] = useState('')
+    const [inputPhone, setInputPhone] = useState<any>()
     const [inputPassword, setInputPassword] = useState('')
     const [inputCountry, setInputCountry] = useState({country: ''})
     const [inputRegion, setInputRegion] = useState({region: ''})
     const [error, setError] = useState('')
+
+    const { register,handleSubmit, control } = useForm();
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        setTimeout(() => {
+            setUser({
+                name: "John Doe",
+                email: "john@doe.com",
+                cpf: "00000000000"
+            });
+        }, 2000);
+    }, []);
 
     const selectCountry = (val: string) => {
         setInputCountry({country: val});
@@ -19,23 +38,22 @@ export const Valid = () => {
     }
     const re = /\S+@\S+\.\S+/;
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (inputText.length < 6) {
             setError('Слишком короткое имя')
-        }else if(inputText.length > 25){
+        } else if (inputText.length > 25) {
             setError('Слишком длинное имя')
-        }else if(!re.test(inputEmail)){
+        } else if (!re.test(inputEmail)) {
             setError('email введён некорректно')
-        }else {
-            alert('Введенное имя: ' + inputText)
-            alert('Введенный email: ' + inputEmail)
-            alert('Введенный пароль: ' + inputPassword)
+        } else {
+            alert(handleSubmit(data))
         }
     }
 
+
     return (
-        <form className={style.form} onSubmit={handleSubmit}>
+        <form className={style.form} onSubmit={onSubmit}>
             <input
                 type="text"
                 className={style.input}
@@ -56,6 +74,17 @@ export const Valid = () => {
                 }}
                 placeholder='Введите email'
             />
+            <input
+                type="phone"
+                className={style.input}
+                value={inputPhone}
+                onChange={(e) => {
+                    setError('')
+                    setInputPhone(e.currentTarget.value)
+                }}
+                placeholder='Введите номер телефона'
+            />
+
             <input
                 type="password"
                 className={style.input}
