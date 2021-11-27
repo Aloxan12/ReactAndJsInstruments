@@ -30,10 +30,10 @@ export const Questionnaire = () => {
                         {user.lastName ? `моя фамилия ${user.lastName},` : ''}
                         <p>мне {user.age} лет</p>
                     </pre>
-                    <QuestionnaireComponent />
-                    <button className={style.btn} onClick={()=> setUser(null)}>Ввести другие данные</button>
+                    <QuestionnaireComponent/>
+                    <button className={style.btn} onClick={() => setUser(null)}>Ввести другие данные</button>
                 </div>
-                :<>
+                : <>
                     Пользователя нет, введите данные:
                     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
                         <label>
@@ -65,35 +65,46 @@ type QuestionType = {
     answers: AnswerType[]
 }
 
-const QuestionnaireComponent =()=>{
+const QuestionnaireComponent = () => {
+    const {register, handleSubmit, control} = useForm();
 
-    const questsFromServer = {
-        "question1": {
+    const questsFromServer = [
+        {
             "title": "Из какого ты города?",
             "answers": [{"title": "Минск"}, {"title": "Москва"}]
         },
-        "question2": {
+        {
             "title": "У тебя есть высшее образование?",
             "answers": [{"title": "да"}, {"title": "нет"}]
-        }, "question3": {
+        },
+        {
             "title": "Какой твой любимый цвет?",
             "answers": [{"title": "красный"}, {"title": "синий"}]
         },
-    }
+    ]
 
     const quests: QuestionType[] = JSON.parse(JSON.stringify(questsFromServer)) //??
+    const onSubmit = (data: any) => {
+        console.log(JSON.stringify(data))
+    }
     console.log(quests)
-    return(
+    return (
         <div>
             <h3>Вопросы</h3>
-            {quests.map(quest => {
-                return (
-                    <div>
-                        {quest.title}
-                        {quest.answers?.map(answer=> <select><option value={answer.title}>{answer.title}</option></select>)}
-                    </div>
-                )
-            })}
+            <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
+                {quests.map(quest => {
+                    return (
+                        <>
+                            <label>select</label>
+                            {quest.title}
+                            <select {...register('select')} name='select'>
+                                {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}
+                            </select>
+                        </>
+                    )
+                })}
+                <input type='submit' className={style.btn}/>
+            </form>
         </div>
     )
 }
