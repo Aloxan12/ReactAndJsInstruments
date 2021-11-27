@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import {Valid} from "./common/Valid/Valid";
+import {Questionnaire} from "./common/Valid/Questionnaire";
 
 
 function App() {
 
     return (
         <div className="App">
-            <Valid />
+            <Questionnaire />
         </div>
     );
 }
