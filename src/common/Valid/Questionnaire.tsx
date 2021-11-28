@@ -92,17 +92,25 @@ const QuestionnaireComponent = () => {
         <div>
             <h3>Вопросы</h3>
             <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-                {quests.map(quest => {
-                    return (
-                        <>
-                            <label>select</label>
-                            {quest.title}
-                            <select {...register('select')} name='select'>
-                                {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}
-                            </select>
-                        </>
-                    )
-                })}
+                <label>
+                    Из какого ты города?
+                </label>
+                <input type='text' {...register('city')} />
+                <label>
+                    У тебя есть высшее образовние
+                </label>
+                <input type='text' {...register('education')} />
+                {/*{quests.map(quest => {*/}
+                {/*    return (*/}
+                {/*        <>*/}
+                {/*            <label>select</label>*/}
+                {/*            {quest.title}*/}
+                {/*            <select {...register('select')} name='select'>*/}
+                {/*                {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}*/}
+                {/*            </select>*/}
+                {/*        </>*/}
+                {/*    )*/}
+                {/*})}*/}
                 <input type='submit' className={style.btn}/>
             </form>
         </div>
