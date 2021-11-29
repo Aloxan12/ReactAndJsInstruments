@@ -1,13 +1,18 @@
 import React from 'react';
 import './App.css';
-import {Questionnaire} from "./common/Valid/Questionnaire";
-
+import {Provider} from 'mobx-react'
+import stores from './common/mobx/stores/index'
+import Onboarding from "./common/mobx/Onboarding";
 
 function App() {
 
     return (
         <div className="App">
-            <Questionnaire />
+
+
+            <Provider {...stores}>
+                <Onboarding/>
+            </Provider>
         </div>
     );
 }

@@ -92,25 +92,36 @@ const QuestionnaireComponent = () => {
         <div>
             <h3>Вопросы</h3>
             <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-                <label>
-                    Из какого ты города?
-                </label>
-                <input type='text' {...register('city')} />
-                <label>
-                    У тебя есть высшее образовние
-                </label>
-                <input type='text' {...register('education')} />
-                {/*{quests.map(quest => {*/}
-                {/*    return (*/}
-                {/*        <>*/}
-                {/*            <label>select</label>*/}
-                {/*            {quest.title}*/}
-                {/*            <select {...register('select')} name='select'>*/}
-                {/*                {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}*/}
-                {/*            </select>*/}
-                {/*        </>*/}
-                {/*    )*/}
-                {/*})}*/}
+                {/*<label>*/}
+                {/*    {quests[0].title}*/}
+                {/*</label>*/}
+                {/*<select {...register('quest1')}>*/}
+                {/*    {quests[0].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
+                {/*</select>*/}
+                {/*<label>*/}
+                {/*    {quests[1].title}*/}
+                {/*</label>*/}
+                {/*<select {...register('quest2')}>*/}
+                {/*    {quests[1].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
+                {/*</select>*/}
+                {/*<label>*/}
+                {/*    {quests[2].title}*/}
+                {/*</label>*/}
+                {/*<select {...register('quest3')}>*/}
+                {/*    {quests[2].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
+                {/*</select>*/}
+
+                {quests.map((quest, index) => {
+                    return (
+                        <>
+                            <label>{quest.title}</label>
+                            <select {...register(`${quest.title}`)} name={quest.title}>
+                                <option style={{display: 'none'}}>Выбрать</option>
+                                {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}
+                            </select>
+                        </>
+                    )
+                })}
                 <input type='submit' className={style.btn}/>
             </form>
         </div>
