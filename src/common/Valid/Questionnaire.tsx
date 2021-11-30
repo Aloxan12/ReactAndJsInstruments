@@ -1,15 +1,21 @@
-import {ChangeEvent, FormEvent, useEffect, useState} from "react";
+import React, {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import style from './Valid.module.css';
 import {CountryDropdown, RegionDropdown} from 'react-country-region-selector';
 import {useForm, Controller} from "react-hook-form";
 import {v1} from "uuid";
 
+type DataUserType = {
+    city: string
+    education: string
+    favoriteColor: string
+}
 
 type UserType = {
     id: string
     firstName: string
     lastName: string
     age: number
+    data: DataUserType
 }
 
 export const Questionnaire = () => {
@@ -29,8 +35,9 @@ export const Questionnaire = () => {
                         <p>Привет! Меня зовут {user.firstName},</p>
                         {user.lastName ? `моя фамилия ${user.lastName},` : ''}
                         <p>мне {user.age} лет</p>
+                        <p>Я из {user.data && user.data.city}</p>
                     </pre>
-                    <QuestionnaireComponent/>
+                    <QuestionnaireComponent dataPtops={user.data}/>
                     <button className={style.btn} onClick={() => setUser(null)}>Ввести другие данные</button>
                 </div>
                 : <>
@@ -64,8 +71,10 @@ type QuestionType = {
     title: string,
     answers: AnswerType[]
 }
-
-const QuestionnaireComponent = () => {
+type QuestionnaireComponentType = {
+    dataPtops:DataUserType
+}
+const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({dataPtops}) => {
     const {register, handleSubmit, control} = useForm();
 
     const questsFromServer = [
@@ -86,30 +95,13 @@ const QuestionnaireComponent = () => {
     const quests: QuestionType[] = JSON.parse(JSON.stringify(questsFromServer)) //??
     const onSubmit = (data: any) => {
         console.log(JSON.stringify(data))
+        return {...dataPtops, data}
     }
     console.log(quests)
     return (
         <div>
             <h3>Вопросы</h3>
             <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
-                {/*<label>*/}
-                {/*    {quests[0].title}*/}
-                {/*</label>*/}
-                {/*<select {...register('quest1')}>*/}
-                {/*    {quests[0].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
-                {/*</select>*/}
-                {/*<label>*/}
-                {/*    {quests[1].title}*/}
-                {/*</label>*/}
-                {/*<select {...register('quest2')}>*/}
-                {/*    {quests[1].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
-                {/*</select>*/}
-                {/*<label>*/}
-                {/*    {quests[2].title}*/}
-                {/*</label>*/}
-                {/*<select {...register('quest3')}>*/}
-                {/*    {quests[2].answers.map(answer => <option value={answer.title}>{answer.title}</option> )}*/}
-                {/*</select>*/}
 
                 {quests.map((quest, index) => {
                     return (
