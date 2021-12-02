@@ -1,7 +1,6 @@
-import React, {ChangeEvent, FormEvent, useEffect, useState} from "react";
+import React, {useState} from "react";
 import style from './Valid.module.css';
-import {CountryDropdown, RegionDropdown} from 'react-country-region-selector';
-import {useForm, Controller} from "react-hook-form";
+import {useForm} from "react-hook-form";
 import {v1} from "uuid";
 
 type DataUserType = {
@@ -20,7 +19,7 @@ type UserType = {
 
 export const Questionnaire = () => {
     const [user, setUser] = useState<UserType | null>(null)
-    const {register, handleSubmit, control} = useForm();
+    const {register, handleSubmit} = useForm();
 
     const onSubmit = (data: any) => {
         console.log(JSON.stringify(data))
@@ -47,16 +46,16 @@ export const Questionnaire = () => {
                     Пользователя нет, введите данные:
                     <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
                         <label>
-                            First Name:
-                            <input type='text' {...register('firstName')}/>
+                            First Name*:
+                            <input type='text' required {...register('firstName')}/>
                         </label>
                         <label>
                             Last Name:
                             <input type='text' {...register('lastName')}/>
                         </label>
                         <label>
-                            Age:
-                            <input type='number' {...register('age')}/>
+                            Age*:
+                            <input type='number' required {...register('age')}/>
                         </label>
                         <input className={style.btn} type='submit'/>
                     </form>
@@ -80,7 +79,7 @@ type QuestionnaireComponentType = {
     setUser: React.Dispatch<React.SetStateAction<UserType | null>>
 }
 const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({setUser}) => {
-    const {register, handleSubmit, control} = useForm();
+    const {register, handleSubmit} = useForm();
 
     const questsFromServer = [
         {

@@ -1,10 +1,7 @@
-import {ChangeEvent, FormEvent, useEffect, useState} from "react";
+import {FormEvent, useEffect, useState} from "react";
 import style from './Valid.module.css';
 import {CountryDropdown, RegionDropdown} from 'react-country-region-selector';
-import {useForm, Controller} from "react-hook-form";
-
-
-
+import {useForm} from "react-hook-form";
 
 
 export const Valid = () => {
@@ -16,9 +13,10 @@ export const Valid = () => {
     const [inputRegion, setInputRegion] = useState({region: ''})
     const [error, setError] = useState('')
 
-    const { register,handleSubmit, control } = useForm();
+    const { handleSubmit } = useForm();
     const [user, setUser] = useState({});
 
+    console.log(user)
     useEffect(() => {
         setTimeout(() => {
             setUser({
