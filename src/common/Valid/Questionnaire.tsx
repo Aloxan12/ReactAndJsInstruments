@@ -35,9 +35,12 @@ export const Questionnaire = () => {
                         <p>Привет! Меня зовут {user.firstName},</p>
                         {user.lastName ? `моя фамилия ${user.lastName},` : ''}
                         <p>мне {user.age} лет</p>
-                        <p>Я из {user.data && user.data.city}</p>
+                        {user.data && user.data.city ? <p>Я из города {user?.data.city}</p> : ''}
+                        {user.data && user.data.education === 'да' ? <p>У меня есть высшее образование</p> : ''}
+                        {user.data && user.data.education === 'нет' ? <p>У меня нет высшего образование</p> : ''}
+                        {user.data && user.data.favoriteColor ? <p>Мой любимый цвет {user.data.city}</p> : ''}
                     </pre>
-                    <QuestionnaireComponent dataPtops={user.data}/>
+                    <QuestionnaireComponent setUser={setUser}/>
                     <button className={style.btn} onClick={() => setUser(null)}>Ввести другие данные</button>
                 </div>
                 : <>
@@ -69,25 +72,30 @@ type AnswerType = {
 }
 type QuestionType = {
     title: string,
+    value: string
     answers: AnswerType[]
 }
 type QuestionnaireComponentType = {
-    dataPtops:DataUserType
+    //setUser: (user:UserType)=> void
+    setUser: React.Dispatch<React.SetStateAction<UserType | null>>
 }
-const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({dataPtops}) => {
+const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({setUser}) => {
     const {register, handleSubmit, control} = useForm();
 
     const questsFromServer = [
         {
             "title": "Из какого ты города?",
+            'value': 'city',
             "answers": [{"title": "Минск"}, {"title": "Москва"}]
         },
         {
             "title": "У тебя есть высшее образование?",
+            'value': 'education',
             "answers": [{"title": "да"}, {"title": "нет"}]
         },
         {
             "title": "Какой твой любимый цвет?",
+            'value': 'favoriteColor',
             "answers": [{"title": "красный"}, {"title": "синий"}]
         },
     ]
@@ -95,7 +103,8 @@ const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({dataPtops
     const quests: QuestionType[] = JSON.parse(JSON.stringify(questsFromServer)) //??
     const onSubmit = (data: any) => {
         console.log(JSON.stringify(data))
-        return {...dataPtops, data}
+        console.log(data)
+        return setUser(prevState => (prevState ? {...prevState, data: data} : prevState))
     }
     console.log(quests)
     return (
@@ -107,7 +116,7 @@ const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({dataPtops
                     return (
                         <>
                             <label>{quest.title}</label>
-                            <select {...register(`${quest.title}`)} name={quest.title}>
+                            <select {...register(`${quest.value}`)} name={quest.value}>
                                 <option style={{display: 'none'}}>Выбрать</option>
                                 {quest.answers?.map(answer => <option value={answer.title}>{answer.title}</option>)}
                             </select>
