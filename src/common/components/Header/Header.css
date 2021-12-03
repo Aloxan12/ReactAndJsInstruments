@@ -1,0 +1,24 @@
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.active {
+    color: #68DED2;
+}
+
+.header-component {
+    display: flex;
+    justify-content: flex-start;
+    margin: 30px 0 0 40px;
+}
+
+.header-component ul li a {
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+}
