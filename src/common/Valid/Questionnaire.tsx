@@ -30,15 +30,7 @@ export const Questionnaire = () => {
         <div className={style.wrap}>
             {user ?
                 <div>
-                    <pre>
-                        <p>Привет! Меня зовут {user.firstName},</p>
-                        {user.lastName ? `моя фамилия ${user.lastName},` : ''}
-                        <p>мне {user.age} лет</p>
-                        {user.data && user.data.city ? <p>Я из города {user?.data.city}</p> : ''}
-                        {user.data && user.data.education === 'да' ? <p>У меня есть высшее образование</p> : ''}
-                        {user.data && user.data.education === 'нет' ? <p>У меня нет высшего образование</p> : ''}
-                        {user.data && user.data.favoriteColor ? <p>Мой любимый цвет {user.data.city}</p> : ''}
-                    </pre>
+                    <Profile user={user}/>
                     <QuestionnaireComponent setUser={setUser}/>
                     <button className={style.btn} onClick={() => setUser(null)}>Ввести другие данные</button>
                 </div>
@@ -125,5 +117,23 @@ const QuestionnaireComponent: React.FC<QuestionnaireComponentType> = ({setUser})
                 <input type='submit' className={style.btn}/>
             </form>
         </div>
+    )
+}
+
+interface IProfile {
+    user: UserType
+}
+
+const Profile:React.FC<IProfile> = ({user}) => {
+    return (
+        <pre>
+            <p>Привет! Меня зовут {user.firstName},</p>
+            {user.lastName ? `моя фамилия ${user.lastName},` : ''}
+            <p>мне {user.age} лет</p>
+            {user.data && user.data.city ? <p>Я из города {user?.data.city}</p> : ''}
+            {user.data && user.data.education === 'да' ? <p>У меня есть высшее образование</p> : ''}
+            {user.data && user.data.education === 'нет' ? <p>У меня нет высшего образование</p> : ''}
+            {user.data && user.data.favoriteColor ? <p>Мой любимый цвет {user.data.city}</p> : ''}
+        </pre>
     )
 }
