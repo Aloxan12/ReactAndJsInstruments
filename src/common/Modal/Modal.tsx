@@ -21,7 +21,7 @@ export const ModalView: React.FC = () => {
         <div>
             <button onClick={()=> setActive(true)}>+</button>
             lorem1xzXZXZ
-            <Modal active={active} setActive={setActive}> Модалка проверка</Modal>
+            <Modal active={active} setActive={setActive}>Модалка</Modal>
         </div>
     )
 }
