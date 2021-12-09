@@ -130,11 +130,14 @@
 // }
 // console.log(reverseWords(string))
 
-function nextChar(c) {
-    return String.fromCharCode(c.charCodeAt(0) + 1);
-}
-console.log(nextChar('a'))
+// function nextChar(c) {
+//     return String.fromCharCode(c.charCodeAt(0) + 1);
+// }
+// console.log(nextChar('a'))
 
+const arr = [{id:1, name: 'test1'}, {id:2, name: 'test2'}, {id:3, name: 'test3'}, {id:4, name: 'test4'}]
+const arr2 = [{id:2, name: 'test2'}, {id:3, name: 'test3'}]
 
+const result = arr.filter(ob => arr2.some(ob2 => ob.id === ob2.id))
 
-
+console.log(result)
