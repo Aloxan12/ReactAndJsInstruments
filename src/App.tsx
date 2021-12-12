@@ -10,7 +10,7 @@ function App() {
 
     return (
         <div className="App">
-            <Questionnaire />
+            {/*<Questionnaire />*/}
             <Widget />
 
             {/*<Provider {...stores}>*/}

@@ -5,7 +5,7 @@ import "./Header.css";
 
 export const Header = () => {
     return (
-        <div className="wrap">
+        <div className="wrap-main-header">
             <div className="header-component">
                 <ul>
                     <li><NavLink to='/'>Home</NavLink></li>

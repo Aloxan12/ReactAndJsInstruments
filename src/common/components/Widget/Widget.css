@@ -1,0 +1,25 @@
+.wrap{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border: 1px solid #54595d;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px #54595d;
+}
+.header-wrap{
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.content-wrap{
+    display: flex;
+    padding: 20px;
+    width: 100%;
+    justify-content: flex-start;
+}
