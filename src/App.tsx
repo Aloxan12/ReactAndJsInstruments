@@ -5,13 +5,14 @@ import './App.css';
 // import Onboarding from "./common/mobx/Onboarding";
 import {Questionnaire} from "./common/Valid/Questionnaire";
 import {Widget} from "./common/components/Widget/Widget";
+import {Clock} from "./common/components/Clock/Clock";
 
 function App() {
 
     return (
         <div className="App">
             {/*<Questionnaire />*/}
-            <Widget />
+            <Widget title="Часы" content={<Clock mode='analog' />} />
 
             {/*<Provider {...stores}>*/}
             {/*    <Onboarding onboardingStore={stores.onboardingStore}/>*/}
