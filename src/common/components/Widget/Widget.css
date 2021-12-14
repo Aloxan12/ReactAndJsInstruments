@@ -23,3 +23,16 @@
     width: 100%;
     justify-content: flex-start;
 }
+.icon-wrap {
+    background-color: #beb6b6;
+    border-radius: 50%;
+}
+.icon-wrap img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+}
+.open {
+    transform: rotate(180deg);
+}
