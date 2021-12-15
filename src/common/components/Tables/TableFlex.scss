@@ -1,0 +1,29 @@
+.table-wrap{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    border-radius: 12px;
+
+    .table-header{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 0;
+    }
+    .table-body{
+        display: flex;
+        flex-direction: column;
+
+        .table-row{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border: 1px solid black;
+
+            .table-col{
+                border: 1px solid blueviolet;
+            }
+        }
+    }
+}
