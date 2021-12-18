@@ -33,4 +33,11 @@
             }
         }
     }
+    form{
+        display: flex;
+        gap: 5px;
+        *{
+            font-size: 28px;
+        }
+    }
 }
