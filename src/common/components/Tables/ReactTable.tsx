@@ -12,7 +12,7 @@ export const AppTable = () => {
 }
 
 interface IContactData {
-    id: number;
+    id: number | null;
     fullName: string;
     address: string;
     phoneNumber: string;
@@ -74,6 +74,23 @@ const Table = () => {
         const newContacts = [...contacts, newContact]
         setContacts(newContacts)
     }
+    const handleEditSubmit = (e:FormEvent<HTMLFormElement>)=>{
+        e.preventDefault()
+
+        const editContact = {
+            id:editContactId,
+            fullName: editFormData.fullName,
+            address: editFormData.address,
+            phoneNumber: editFormData.phoneNumber,
+            email: editFormData.email,
+        }
+        const newContacts = [...contacts]
+        const index = contacts.findIndex((contact) => contact.id === editContactId)
+        // @ts-ignore
+        newContacts[index] = editContact
+        setContacts(newContacts)
+        setEditContactId(null)
+    }
     const handleEditClick =(e:MouseEvent<HTMLButtonElement>, contact: IContactData)=>{
         e.preventDefault()
         setEditContactId(contact.id)
@@ -89,7 +106,7 @@ const Table = () => {
     }
     return (
         <div className="table-container">
-            <form>
+            <form onSubmit={handleEditSubmit}>
                 <table>
                     <thead>
                     <tr>
@@ -153,6 +170,9 @@ const EditTableRow: React.FC<IEditTableRow> = ({editFormData, handleEditFormChan
             <td><input type="text" name="address" onChange={handleEditFormChange} value={editFormData.address} required placeholder="Enter an address"/></td>
             <td><input type="text" name="phoneNumber" onChange={handleEditFormChange} value={editFormData.phoneNumber} required placeholder="Enter a phone number"/></td>
             <td><input type="email" name="email" onChange={handleEditFormChange} value={editFormData.email} required placeholder="Enter a email"/></td>
+            <td>
+                <button type="submit">save</button>
+            </td>
         </tr>
     )
 }
