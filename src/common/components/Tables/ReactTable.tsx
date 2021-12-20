@@ -104,6 +104,9 @@ const Table = () => {
         }
         setEditFormData(formValues)
     }
+    const handleCancelClick =()=>{
+        setEditContactId(null)
+    }
     return (
         <div className="table-container">
             <form onSubmit={handleEditSubmit}>
@@ -122,7 +125,7 @@ const Table = () => {
                         return (
                             <React.Fragment key={contact.id}>
                                 {editContactId === contact.id
-                                    ? <EditTableRow editFormData={editFormData} handleEditFormChange={handleEditFormChange}/>
+                                    ? <EditTableRow editFormData={editFormData} handleEditFormChange={handleEditFormChange} handleCancelClick={handleCancelClick}/>
                                     : <TableRow contact={contact} handleEditClick={handleEditClick} />}
                             </React.Fragment>
                         )
@@ -162,8 +165,9 @@ const TableRow: React.FC<ITableRow> = ({contact, handleEditClick})=>{
 interface IEditTableRow {
     editFormData: IContactData
     handleEditFormChange:(e: ChangeEvent<HTMLInputElement>)=> void
+    handleCancelClick:()=> void
 }
-const EditTableRow: React.FC<IEditTableRow> = ({editFormData, handleEditFormChange})=>{
+const EditTableRow: React.FC<IEditTableRow> = ({editFormData, handleEditFormChange, handleCancelClick})=>{
     return(
         <tr>
             <td><input type="text" name="fullName" onChange={handleEditFormChange} value={editFormData.fullName} required placeholder="Enter a name"/></td>
@@ -172,6 +176,7 @@ const EditTableRow: React.FC<IEditTableRow> = ({editFormData, handleEditFormChan
             <td><input type="email" name="email" onChange={handleEditFormChange} value={editFormData.email} required placeholder="Enter a email"/></td>
             <td>
                 <button type="submit">save</button>
+                <button type="button" onClick={handleCancelClick}>cancel</button>
             </td>
         </tr>
     )
