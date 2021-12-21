@@ -107,6 +107,19 @@ const Table = () => {
     const handleCancelClick =()=>{
         setEditContactId(null)
     }
+    const handleDeleteClick =(contactId: number)=>{
+        const filteredContacts = contacts.filter(contact => contact.id !== contactId)
+        if(filteredContacts){
+            setContacts(filteredContacts)
+        }
+    }
+    const handleDeleteClick2 =(contactId: number)=>{
+        const newContacts = [...contacts];
+        const index = contacts.findIndex((contact)=> contact.id === contactId)
+        newContacts.splice(index, 1)
+
+        setContacts(newContacts)
+    }
     return (
         <div className="table-container">
             <form onSubmit={handleEditSubmit}>
@@ -126,7 +139,7 @@ const Table = () => {
                             <React.Fragment key={contact.id}>
                                 {editContactId === contact.id
                                     ? <EditTableRow editFormData={editFormData} handleEditFormChange={handleEditFormChange} handleCancelClick={handleCancelClick}/>
-                                    : <TableRow contact={contact} handleEditClick={handleEditClick} />}
+                                    : <TableRow contact={contact} handleEditClick={handleEditClick} handleDeleteClick={handleDeleteClick} />}
                             </React.Fragment>
                         )
                     })}
@@ -148,8 +161,9 @@ const Table = () => {
 interface ITableRow {
     contact: IContactData
     handleEditClick: (e: MouseEvent<HTMLButtonElement>,contactId: IContactData)=> void
+    handleDeleteClick: (id:number)=> void
 }
-const TableRow: React.FC<ITableRow> = ({contact, handleEditClick})=>{
+const TableRow: React.FC<ITableRow> = ({contact, handleEditClick, handleDeleteClick})=>{
     return(
         <tr>
             <td>{contact.fullName}</td>
@@ -158,6 +172,7 @@ const TableRow: React.FC<ITableRow> = ({contact, handleEditClick})=>{
             <td>{contact.email}</td>
             <td>
                 <button onClick={(e)=> handleEditClick(e, contact)}>Edit</button>
+                <button onClick={(e)=> handleDeleteClick(contact.id!)}>Delete</button>
             </td>
         </tr>
     )
