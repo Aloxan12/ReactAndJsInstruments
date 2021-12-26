@@ -4,6 +4,7 @@ import DocViewer, {DocViewerRenderers} from "react-doc-viewer";
 import {Modal, ModalView} from "../Modal/Modal";
 
 export const Test = () => {
+    const [activeModel, setActiveModel] = useState(false)
     const [docs, setDocs] = useState( [
         {uri: "https://c8261d96-4316-475f-9f68-c7d397d4d0b5.selcdn.net/media/Kitayskiy.docx"},
         {uri: "https://c8261d96-4316-475f-9f68-c7d397d4d0b5.selcdn.net/media/square_320_c09ebae17387b7d6eeb9fa0d42afe5ee.jpg"}
@@ -26,8 +27,11 @@ export const Test = () => {
                 className="input_file"
             />
             <div>
+                <button onClick={()=>setActiveModel(true)}>Show</button>
+                <Modal active={activeModel} setActive={setActiveModel}>
                 <DocViewer style={{width: "600px", height: '700px', margin: 'auto'}}
                            pluginRenderers={DocViewerRenderers} documents={docs}/>
+                </Modal>
             </div>
         </div>
     )
