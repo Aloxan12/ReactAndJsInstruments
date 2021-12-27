@@ -29,7 +29,7 @@ export const Test = () => {
             <div>
                 <button onClick={()=>setActiveModel(true)}>Show</button>
                 <Modal active={activeModel} setActive={setActiveModel}>
-                <DocViewer style={{width: "600px", height: '700px', margin: 'auto'}}
+                <DocViewer
                            pluginRenderers={DocViewerRenderers} documents={docs}/>
                 </Modal>
             </div>
