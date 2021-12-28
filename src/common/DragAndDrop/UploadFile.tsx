@@ -3,29 +3,29 @@ import './UploadFile.css'
 
 export const UploadFile = () => {
     const [drag, setDrag] = useState(false)
-    const dragStartHandler =(e:any)=>{
+    const dragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDrag(true)
     }
-    const dragLeaveHandler =(e:any)=>{
+    const dragLeaveHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDrag(false)
     }
-    const onDropHandler =(e:any)=>{
+    const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
-        let file = [...e.dataTransfer.files]
+        let file = e.dataTransfer.files
         console.log(file)
     }
-    return(
+    return (
         <div
             className="upload-file"
-            onDragStart={e => dragStartHandler(e)}
-            onDragLeave={e => dragLeaveHandler(e)}
-            onDragOver={e => dragStartHandler(e)}
-            onDrop={e => onDropHandler(e)}
         >
             {drag ?
-                <div className="drop-area">Отпустите файлы, чтобы загурзить их</div> :
+                <div className="drop-area"
+                     onDragStart={e => dragStartHandler(e)}
+                     onDragLeave={e => dragLeaveHandler(e)}
+                     onDragOver={e => dragStartHandler(e)}
+                     onDrop={e => onDropHandler(e)}>Отпустите файлы, чтобы загурзить их</div> :
                 <div
                     onDragStart={e => dragStartHandler(e)}
                     onDragLeave={e => dragLeaveHandler(e)}
