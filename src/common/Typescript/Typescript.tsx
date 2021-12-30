@@ -9,6 +9,7 @@ type ComponentType = {
     title: string
 }
 
+
 export const Component: React.FC<ComponentType> = ({title}) =>{
     return (
         <div>

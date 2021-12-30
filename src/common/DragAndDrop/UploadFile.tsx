@@ -3,6 +3,7 @@ import './UploadFile.css'
 
 export const UploadFile = () => {
     const [drag, setDrag] = useState(false)
+    const [file, setFile] = useState<File | null>(null)
     const dragStartHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
         setDrag(true)
@@ -13,8 +14,10 @@ export const UploadFile = () => {
     }
     const onDropHandler = (e: React.DragEvent<HTMLDivElement>) => {
         e.preventDefault()
-        let file = e.dataTransfer.files
-        console.log(file)
+        const file = e.dataTransfer.files
+        if(file !== null){
+            setFile(file[0])
+        }
     }
     return (
         <div
