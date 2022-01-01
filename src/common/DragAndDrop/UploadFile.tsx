@@ -17,6 +17,7 @@ export const UploadFile = () => {
         const file = e.dataTransfer.files
         if(file !== null){
             setFile(file[0])
+            console.log(file)
         }
     }
     return (
