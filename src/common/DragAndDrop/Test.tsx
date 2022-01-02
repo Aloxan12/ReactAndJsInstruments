@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import './UploadFile.css'
 import DocViewer, {DocViewerRenderers} from "react-doc-viewer";
-import {Modal, ModalView} from "../Modal/Modal";
 
 export const Test = () => {
     const [activeModel, setActiveModel] = useState(false)
@@ -28,10 +27,8 @@ export const Test = () => {
             />
             <div>
                 <button onClick={()=>setActiveModel(true)}>Show</button>
-                <Modal active={activeModel} setActive={setActiveModel}>
                 <DocViewer
                            pluginRenderers={DocViewerRenderers} documents={docs}/>
-                </Modal>
             </div>
         </div>
     )
