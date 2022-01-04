@@ -1,22 +1,15 @@
 import React from 'react';
 import './App.css';
-import {TableFlex} from "./common/components/Tables/TableFlex";
-import {AppTable} from "./common/components/Tables/ReactTable";
-import {UploadFile} from "./common/DragAndDrop/UploadFile";
-import {Test} from "./common/DragAndDrop/Test";
-// import {Provider} from 'mobx-react'
-// import stores from './common/mobx/stores/index'
-// import Onboarding from "./common/mobx/Onboarding";
+import {Onboarding} from "./common/mobx/Onboarding";
+import { Provider } from 'mobx-react';
 
-function App() {
 
+const App=()=> {
     return (
         <div className="App">
-            <Test />
-
-            {/*<Provider {...stores}>*/}
-            {/*    <Onboarding onboardingStore={stores.onboardingStore}/>*/}
-            {/*</Provider>*/}
+            <Provider>
+                <Onboarding />
+            </Provider>
         </div>
     );
 }
