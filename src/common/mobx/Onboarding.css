@@ -1,0 +1,17 @@
+.onboarding-wrap{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+.onboarding{
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.onboarding-wrap h2{
+    margin: 10px auto;
+}

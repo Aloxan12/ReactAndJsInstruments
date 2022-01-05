@@ -8,7 +8,7 @@ export interface AnswerInterface {
 
 export interface QuestionInterface {
     title: string
-    answers: any     //AnswerInterface[]
+    answers: any
     currentAnswers?: AnswerInterface[]
 }
 
@@ -32,11 +32,11 @@ export class OnboardingStore {
     nextQuestion = (answers: AnswerInterface[]) => {
         if (!answers?.some((a) => a.isChecked === true)) {
             // отвечен ли текущий вопрос?
-            alert('не выбран ответ')
+            console.log('не выбран ответ')
         } else if (this.currentQuestion === this.questions.length - 1) {
             //Есть ли куда идти дальше?
             ++this.currentQuestion
-            alert('Редирект')
+            console.log('Редирект')
         } else {
             ++this.currentQuestion
         }
