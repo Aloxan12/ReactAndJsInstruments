@@ -42,7 +42,6 @@ export const Onboarding = observer(() => {
                     <button onClick={() => nextQuestion(currentQuestion?.answers)}>Следующий вопрос
                     </button>
                 </div>
-                {`${questions.length}`}
             </div>
         </div>
     )
