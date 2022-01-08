@@ -14,7 +14,6 @@ export const Component: React.FC<ComponentType> = ({title}) =>{
     return (
         <div>
             <span>{title}</span>
-            <span>{title}</span>
         </div>
     )
 }
