@@ -5,16 +5,14 @@ import {AnswerInterface} from "./stores/onboardingStore/onboardingStore";
 import OnboardingStoreInstance from "./stores/onboardingStore";
 
 
-
 export const Onboarding = observer(() => {
-    const { questions, checkedAnswer, nextQuestion, getOnboarding } = OnboardingStoreInstance
+    const {questions, checkedAnswer, nextQuestion, getOnboarding} = OnboardingStoreInstance
     const currentQuestion = questions[OnboardingStoreInstance.currentQuestion]
 
 
-
-    useEffect(()=>{
+    useEffect(() => {
         getOnboarding()
-    },[])
+    }, [])
     return (
         <div className="onboarding-wrap">
             <div className="onboarding">
@@ -35,6 +33,23 @@ export const Onboarding = observer(() => {
                                 </label>
                             </div>
                         )
+                    })}
+                </div>
+                <div>
+                    {questions.map(question => {
+                        return (
+                            <>
+                                <label>{question.title}</label>
+                                <select value={question.title}>
+                                    {question.answers.map((answer: any) => {
+                                        return (
+                                            <option value={answer.title} onChange={() => checkedAnswer(answer.id)}>
+                                                {answer.title}
+                                            </option>
+                                        )
+                                    })}
+                                </select>
+                            </>)
                     })}
                 </div>
                 <div>

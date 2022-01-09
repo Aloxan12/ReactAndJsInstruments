@@ -63,7 +63,6 @@ export class OnboardingStore {
                 }
             })
             this.setAnswer(findAnswer)
-            alert(`${findAnswer.isChecked}`)
         }
         // this.questions[this.currentQuestion].answers = this.questions[
         //   this.currentQuestion
