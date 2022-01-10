@@ -20,15 +20,36 @@ const sortFunction =(arr: IStudents[])=>{
 export const SortViewer =()=>{
     return(
         <div>
-            {(()=>sortFunction(students).map(student=>{
-                return(
-                    <div>
-                        <span>{student.id}</span>
-                        <span>{student.name}</span>
-                        <span>{student.age}</span>
-                    </div>
-                )
-            }))()}
+            <table>
+                <thead>
+                    <th>
+                        <span>айди ⇅ </span>
+                    </th>
+                    <th>
+                        <span>имя ⇅ </span>
+                    </th>
+                    <th>
+                        <span>возраст ⇅ </span>
+                    </th>
+                </thead>
+                <tbody>
+                {(()=>sortFunction(students).map(student=>{
+                    return(
+                        <tr>
+                            <th>
+                                <span>{student.id} </span>
+                            </th>
+                            <th>
+                                <span>{student.name} </span>
+                            </th>
+                            <th>
+                                <span>{student.age}</span>
+                            </th>
+                        </tr>
+                    )
+                }))()}
+                </tbody>
+            </table>
         </div>
     )
 }
