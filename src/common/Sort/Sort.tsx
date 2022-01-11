@@ -1,39 +1,51 @@
+import {useState} from "react";
 
-interface IStudents{
-    id: number
-    name: string
-    age: number
-}
+// interface IStudents{
+//     [keyof: string]: number
+//     [keyof: string]: string
+//     [keyof: string]: number
+// }
 
-const students: IStudents[] = [
-    {id:1, name: 'Vika', age: 24},
-    {id:2, name: 'Alex', age: 26},
-    {id:3, name: 'Dima', age: 19},
-    {id:4, name: 'Valera', age: 21},
-    {id:5, name: 'Bob', age: 20},
+const students = [
+    {"id":1, "name": "Vika", "age": 24},
+    {"id":2, "name": "Alex", "age": 26},
+    {"id":3, "name": "Dima", "age": 19},
+    {"id":4, "name": "Valera", "age": 21},
+    {"id":5, "name": "Bob", "age": 20},
 ]
 
-const sortFunction =(arr: IStudents[])=>{
-    return arr
-}
+// const sortFunction =(items: IStudents[], params: string)=>{
+//     const newArr = items[params].
+//     return newArr
+// }
 
 export const SortViewer =()=>{
+    const [sortArray, setSortArray] = useState(students)
+    const [order, setOrder] = useState('ABC')
+
+    const sortHandler =(col: string)=>{
+
+        const sorted = [...sortArray].sort((a, b) =>
+            a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+        )
+    }
+
     return(
         <div>
             <table>
                 <thead>
-                    <th>
+                    <th onClick={()=>sortHandler('id')}>
                         <span>айди ⇅ </span>
                     </th>
-                    <th>
+                    <th onClick={()=>sortHandler('name')}>
                         <span>имя ⇅ </span>
                     </th>
-                    <th>
+                    <th onClick={()=>sortHandler('age')}>
                         <span>возраст ⇅ </span>
                     </th>
                 </thead>
                 <tbody>
-                {(()=>sortFunction(students).map(student=>{
+                {sortArray.map(student=>{
                     return(
                         <tr>
                             <th>
@@ -47,7 +59,7 @@ export const SortViewer =()=>{
                             </th>
                         </tr>
                     )
-                }))()}
+                })}
                 </tbody>
             </table>
         </div>
