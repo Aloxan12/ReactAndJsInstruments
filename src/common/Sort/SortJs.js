@@ -19,15 +19,16 @@ const students = [
 //     return newArr
 // }
 
-export const SortViewer =()=>{
+export const SortViewerJs =()=>{
     const [sortArray, setSortArray] = useState(students)
     const [order, setOrder] = useState('ABC')
 
-    const sortHandler =(col: string)=>{
+    const sortHandler =(col)=>{
 
-        // const sorted = [...sortArray].sort((a, b) =>
-        //     a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
-        // )
+        const sorted = [...sortArray].sort((a, b) =>
+            a[col] > b[col] ? 1 : -1
+        )
+        setSortArray(sorted)
     }
 
     return(
