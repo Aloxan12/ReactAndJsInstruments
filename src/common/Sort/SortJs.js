@@ -25,10 +25,20 @@ export const SortViewerJs =()=>{
 
     const sortHandler =(col)=>{
 
-        const sorted = [...sortArray].sort((a, b) =>
-            a[col] > b[col] ? 1 : -1
-        )
-        setSortArray(sorted)
+        if(order === 'ABC'){
+            const sorted = [...sortArray].sort((a, b) =>
+                a[col] > b[col] ? 1 : -1
+            )
+            setSortArray(sorted)
+            setOrder('DSC')
+        }
+        if(order === 'DSC'){
+            const sorted = [...sortArray].sort((a, b) =>
+                a[col] < b[col] ? 1 : -1
+            )
+            setSortArray(sorted)
+            setOrder('ABC')
+        }
     }
 
     return(
