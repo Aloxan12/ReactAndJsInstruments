@@ -1,10 +1,5 @@
 import {useState} from "react";
-//
-// interface IStudents{
-//     [key: string]: number
-//     [keyof: string]: string
-//     [keyof: string]: number
-// }
+
 
 const students = [
     {"id":1, "name": "Vika", "age": 24},
@@ -13,21 +8,25 @@ const students = [
     {"id":4, "name": "Valera", "age": 21},
     {"id":5, "name": "Bob", "age": 20},
 ]
-
+type StudentsType = typeof students
 // const sortFunction =(items: IStudents[], params: string)=>{
 //     const newArr = items[params].
 //     return newArr
 // }
 
 export const SortViewer =()=>{
-    const [sortArray, setSortArray] = useState(students)
+    const [sortArray, setSortArray] = useState<StudentsType>(students)
     const [order, setOrder] = useState('ABC')
 
-    const sortHandler =(col: string)=>{
+    const sortHandler =(col: any)=>{
 
         // const sorted = [...sortArray].sort((a, b) =>
-        //     a[col].toLowerCase() > b[col].toLowerCase() ? 1 : -1
+        //     col === 'age' && a['age'] > b['age'] ? 1 : -1;
+        //     col === 'id' && a['id'] > b['id'] ? 1 : -1;
+        //     col === 'name' && a['name'] > b['name'] ? 1 : -1;
         // )
+        // setSortArray(sorted)
+        // setOrder('DSC')
     }
 
     return(
