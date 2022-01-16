@@ -4,13 +4,14 @@ import {Onboarding} from "./common/mobx/Onboarding";
 import { Provider } from 'mobx-react';
 import {SortViewer} from "./common/Sort/Sort";
 import {SortViewerJs} from "./common/Sort/SortJs";
-import {LoaderComponent} from "./common/LoadingComponent/LoaderComponent";
+import {LoaderComponent} from "./common/LoadingComponent/LoaderSVG/LoaderComponent";
+import {LoaderCircle} from "./common/LoadingComponent/LoaderCircle/LoaderCircle";
 
 
 const App=()=> {
     return (
         <div className="App">
-            <LoaderComponent />
+            <LoaderCircle />
             {/*<SortViewerJs />*/}
             {/*<Provider>*/}
             {/*    <Onboarding />*/}
