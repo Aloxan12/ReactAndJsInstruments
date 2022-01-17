@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useMemo, useState} from "react";
 
 
 const students = [
@@ -18,28 +18,41 @@ export const SortViewer =()=>{
     const [sortArray, setSortArray] = useState<StudentsType>(students)
     const [order, setOrder] = useState('ABC')
 
-    const sortHandler =(col: any)=>{
+    const arrFilter = (params: {
+        array: any[]
+        query?: string
+    }) => {
+        const { array, query } = params
+        const sortedRestaurants = useMemo(() => {
+            if (!!query) {
+                return array.sort((a, b) => a.name.localeCompare(b.name))
+            }
+            return array
+        }, [query, array])
 
-        // const sorted = [...sortArray].sort((a, b) =>
-        //     col === 'age' && a['age'] > b['age'] ? 1 : -1;
-        //     col === 'id' && a['id'] > b['id'] ? 1 : -1;
-        //     col === 'name' && a['name'] > b['name'] ? 1 : -1;
-        // )
-        // setSortArray(sorted)
-        // setOrder('DSC')
+        const searchedAndFilterResult = useMemo(() => {
+            if (!!sortedRestaurants) {
+                return sortedRestaurants.filter((array) =>
+                    array.name.toLowerCase().includes(query!.toLowerCase()),
+                )
+            }
+            return array
+        }, [query, sortedRestaurants])
+
+        return searchedAndFilterResult
     }
 
     return(
         <div>
             <table>
                 <thead>
-                    <th onClick={()=>sortHandler('id')}>
+                    <th>
                         <span>айди ⇅ </span>
                     </th>
-                    <th onClick={()=>sortHandler('name')}>
+                    <th>
                         <span>имя ⇅ </span>
                     </th>
-                    <th onClick={()=>sortHandler('age')}>
+                    <th>
                         <span>возраст ⇅ </span>
                     </th>
                 </thead>
