@@ -77,6 +77,8 @@ type valueArrType = {
     age:number,
     data: {body: string, header: number}
 }
+
+
 type ValueArrType<T> = { [P in keyof T]: T[P] }
 
 
