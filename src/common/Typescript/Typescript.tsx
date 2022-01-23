@@ -61,7 +61,11 @@ const todo: MyReadonly<Todo> = {
     description: "foobar"
 }
 
-
+//====================================================
+//Реализовать TupleToUnion<T> который переводит элементы кортежа в их объединение.
+type Arr = ['1', '2', '3']
+type TupleToUnion<T extends unknown[]> = T[number]
+let value: TupleToUnion<Arr> // expected to be '1' | '2' | '3'
 
 
 
