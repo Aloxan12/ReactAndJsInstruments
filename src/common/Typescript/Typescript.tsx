@@ -67,6 +67,16 @@ type Arr = ['1', '2', '3']
 type TupleToUnion<T extends unknown[]> = T[number]
 let value: TupleToUnion<Arr> // expected to be '1' | '2' | '3'
 
+//======================================================
+//Реализовать Absolute тип. Он принимает string, number или bigint.
+// Результатом должно быть положительное число в виде строки. Например:
+
+type Test = -100;
+type Absolute<T extends number | string | bigint> = `${T}` extends `-${infer N}`
+    ? N
+    : `${T}`
+type Result22 = Absolute<Test>; // expected to be "100"
+
 
 
 
