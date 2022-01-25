@@ -78,7 +78,11 @@ type Absolute<T extends number | string | bigint> = `${T}` extends `-${infer N}`
 type Result22 = Absolute<Test>; // expected to be "100"
 
 
-
+//Реализовать функцию Array.includes из JavaScript в системе типов TypeScript.
+// Этот тип принимает два тип параметра. Результатом должно быть либо true, либо false. Например:
+// expected to be `false`
+type Includes<T extends unknown[], U> = U extends T[number] ? true : false;
+type isPillarMen = Includes<["Kars", "Esidisi", "Wamuu", "Santana"], "Dio">;
 
 
 const valueArr = {
