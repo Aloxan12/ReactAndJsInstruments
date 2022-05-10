@@ -1,0 +1,19 @@
+.tooltip-ref-viewer-wrapper{
+    width: 400px;
+    padding: 50px;
+    margin: auto;
+    background-color: orange;
+}
+
+.tooltip-ref-viewer-wrapper input{
+    width: 200px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.items{
+    width: 200px;
+    padding: 7px;
+    border-radius: 0 0 12px 12px;
+    background-color: #aaaaaa;
+}
