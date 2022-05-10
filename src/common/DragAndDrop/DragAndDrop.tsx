@@ -1,6 +1,7 @@
 import React, {useState, DragEvent} from "react";
 import style from "./DragAndDrop.module.css";
 import {v1} from "uuid";
+import {LoaderCircle} from "../LoadingComponent/LoaderCircle/LoaderCircle";
 
 type CardType = {
     id: string
