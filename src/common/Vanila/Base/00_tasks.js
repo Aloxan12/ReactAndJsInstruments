@@ -270,10 +270,24 @@
 // obj['1'] = 80
 // console.log(obj)
 
+let timeToExit = (time)=> (new Date).getTime() + time;
 
+const timer = (time) => {
+    const fixTime = timeToExit(time)
+    let i = 0
+    while (true) {
+        i = i++;
+        if ((new Date).getTime() >= fixTime) return;
+    }
+}
 
+const asyncBlockTimer = async () => {
+    console.log('1')
+    await timer(3000)
+    console.log('2')
+}
 
-
+asyncBlockTimer()
 
 
 
