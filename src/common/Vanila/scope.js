@@ -7,8 +7,16 @@
 // fn()//lol
 
 
+// hosting
+// greeting = 'hello'
+// console.log(greeting) // 'hello'
+// var greeting = 'hi'
+// console.log(greeting)// hi
 
-greeting = 'hello'
-console.log(greeting) // 'hello'
-var greeting = 'hi'
-console.log(greeting)// hi
+// fnVar() //TypeError
+// var fnVar = function (){}
+
+fn()
+function fn(){
+    console.log('Поднимается!!')
+}
