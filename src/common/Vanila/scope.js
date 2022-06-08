@@ -23,9 +23,31 @@
 // }
 
 
+//Нельзя повторно обявить переменную в одной обасти видимости
+// var studentName = "Frank";
+// console.log(studentName);
+// // Frank
+// var studentName;
+// console.log(studentName); // ??? //"Frank"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // ================ Теория поднятия
-// Если мы объяим такой код
+
+// Метафора поднятия
+// Если мы объявим такой код
 // studentName = "Suzy";
 // greeting();
 // // Hello Suzy!
