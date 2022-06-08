@@ -14,7 +14,7 @@
 // var greeting = 'hi'
 // console.log(greeting)// hi
 
-// fnVar() //TypeError
+// fnVar() //TypeError потому что в данный момент fnVar инициализируется\читается как undefined, а вызвать можно только функию
 // var fnVar = function (){}
 
 // fn()
