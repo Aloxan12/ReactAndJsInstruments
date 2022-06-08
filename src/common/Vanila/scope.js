@@ -23,12 +23,25 @@
 // }
 
 
-//Нельзя повторно обявить переменную в одной обасти видимости
+// Нельзя повторно обявить переменную в одной обасти видимости
 // var studentName = "Frank";
-// console.log(studentName);
-// // Frank
+// console.log(studentName); // Frank
 // var studentName;
-// console.log(studentName); // ??? //"Frank"
+// console.log(studentName); // Frank <--- все равно!
+// // добавим явную инициализацию
+// var studentName = undefined;
+// console.log(studentName); // undefined <--- видите!?
+
+// С функцией
+// var greeting;
+// function greeting() {
+//     console.log("Hello!");
+// }
+// // по сути пустая операция
+// var greeting;
+// typeof greeting; // "function"
+// var greeting = "Hello!";
+// typeof greeting; // "string"
 
 
 
