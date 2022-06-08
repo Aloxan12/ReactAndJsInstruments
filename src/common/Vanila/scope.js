@@ -21,3 +21,23 @@
 // function fn(){
 //     console.log('Поднимается!!')
 // }
+
+
+
+// ================ Теория поднятия
+// Если мы объяим такой код
+// studentName = "Suzy";
+// greeting();
+// // Hello Suzy!
+// function greeting() {
+//     console.log(`Hello ${ studentName }!`);
+// }
+// var studentName;
+// То js перед папуском его преобразует в такой, потому, что объявления функций поднимаются первыми
+// function greeting() {
+//     console.log(`Hello ${ studentName }!`);
+// }
+// var studentName;
+// studentName = "Suzy";
+// greeting();
+// // Hello Suzy!
