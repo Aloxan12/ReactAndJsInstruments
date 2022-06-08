@@ -7,7 +7,8 @@
 // fn()//lol
 
 
-// hosting
+//================ hosting
+
 // greeting = 'hello'
 // console.log(greeting) // 'hello'
 // var greeting = 'hi'
@@ -16,7 +17,7 @@
 // fnVar() //TypeError
 // var fnVar = function (){}
 
-fn()
-function fn(){
-    console.log('Поднимается!!')
-}
+// fn()
+// function fn(){
+//     console.log('Поднимается!!')
+// }
