@@ -44,7 +44,9 @@
 // typeof greeting; // "string"
 
 
-
+// let и const е разрешают объявлять переменную с одним именени в одной области видимости
+// var studentName = "Frank";
+// let studentName = "Suzy";
 
 
 
