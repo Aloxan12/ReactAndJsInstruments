@@ -50,12 +50,21 @@
 
 
 
-askQuestion(); // ReferenceError для let, а для var будет 'undefined, do you know?'
+// askQuestion(); // ReferenceError для let, а для var будет 'undefined, do you know?'
+//
+// let studentName = "Suzy";
+// function askQuestion() {
+//     console.log(`${ studentName }, do you know?`);
+// }
 
-let studentName = "Suzy";
-function askQuestion() {
-    console.log(`${ studentName }, do you know?`);
-}
+
+// var name = 'Ali'
+// {
+//     console.log(name) // ReferenceError
+//     let name = 'Alex'
+//     console.log(name)
+// }
+
 
 
 
