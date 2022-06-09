@@ -66,8 +66,13 @@
 // }
 
 
-
-
+let num = 10
+if(num === 10){
+    let str = 'let'
+    var str2 = 'var'
+}
+console.log(str) // ReferenceError
+console.log(str2) // 'var'
 
 
 
