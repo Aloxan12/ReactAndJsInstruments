@@ -71,12 +71,20 @@
 //     let str = 'let'
 //     var str2 = 'var'
 // }
-function fn(){
-    var str3 = 'lol'
-}
+// function fn(){
+//     var str3 = 'lol'
+// }
 // console.log(str) // ReferenceError
 // console.log(str2) // 'var'
-console.log(str3) // // ReferenceError
+//console.log(str3) // // ReferenceError
+
+
+if (false) {
+    function ask() {
+        console.log("Does this run?");
+    }
+}
+ask(); // TypeError при false и сработает при true
 
 
 
