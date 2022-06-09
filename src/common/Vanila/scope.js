@@ -79,12 +79,20 @@
 //console.log(str3) // // ReferenceError
 
 
-if (false) {
-    function ask() {
-        console.log("Does this run?");
-    }
-}
-ask(); // TypeError при false и сработает при true
+
+// if (false) {
+//     function ask() {
+//         console.log("Does this run?");
+//     }
+// }
+// ask(); // TypeError при false и сработает при true
+
+
+
+
+
+
+
 
 
 
