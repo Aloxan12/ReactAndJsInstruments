@@ -1,10 +1,13 @@
 // Регулярные выражения
 
-const pattern = /test/
-const pattern2 = new RegExp('test')
+const pattern = /test/ // литерал
+const pattern2 = new RegExp('test') // конструктор
 // В обоих случаях создается одно и то же регулярное выражение
 
+const pattern3 = /[test]/ //оператор класса символов
+// в случае с литералом важна последовательность символов, тут - нет
 
+console.log('pattern3', pattern.test('et'))
 
 
 // Флаги:
