@@ -6,8 +6,8 @@ const pattern2 = new RegExp('test') // конструктор
 
 const pattern3 = /[test]/ //оператор класса символов
 // в случае с литералом важна последовательность символов, тут - нет
-
-console.log('pattern3', pattern.test('et'))
+// console.log('pattern', pattern.test('et')) // false
+// console.log('pattern3', pattern3.test('et')) // true
 
 
 // Флаги:
