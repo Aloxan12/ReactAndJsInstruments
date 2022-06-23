@@ -31,9 +31,12 @@
 //
 // doA() => doF() => doB() => doC() => doE() => doD()
 
-function result (data){
-    console.log('a')
-}
-var a = 0
-ajax('url...', result)
-a++
+
+
+
+// function result (data){
+//     console.log('a')
+// }
+// var a = 0
+// ajax('url...', result)
+// a++
