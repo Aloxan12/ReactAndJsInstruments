@@ -2,11 +2,6 @@
 
 
 
-
-
-
-
-
 // A
 // setTimeout(function(){
     //B
@@ -41,14 +36,22 @@
 // ajax('url...', result)
 // a++
 
+
 console.log('1')
 setTimeout(()=>{
     console.log('5')
 },0)
 new Promise((resolve, reject)=> {
     console.log('2')
-    return resolve(2)
-}).then(()=> console.log('4'))
+    return resolve(4)
+}).then((res)=> {
+    console.log(res)
+    return new Promise(function (resolve, reject){
+        setTimeout(function (){
+            resolve(6)
+        },0)
+    })
+}).then((res)=>console.log(res))
 console.log('3')
 
 
