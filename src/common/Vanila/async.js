@@ -1,7 +1,6 @@
 
 
 
-
 // A
 // setTimeout(function(){
     //B
@@ -25,7 +24,6 @@
 // doF()
 //
 // doA() => doF() => doB() => doC() => doE() => doD()
-
 
 
 
