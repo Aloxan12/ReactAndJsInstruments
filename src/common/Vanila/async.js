@@ -53,7 +53,7 @@ new Promise((resolve, reject)=> {
     })
 }).then((res)=>console.log(res))
 console.log('3')
-
+// такая последовательность если delay у сеттаймаутов одинаковый, если у сеттаймаута 5 больше delay,он выполнится поздее
 
 
 // p.then(()=>{
