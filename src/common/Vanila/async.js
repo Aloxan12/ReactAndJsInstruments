@@ -35,22 +35,22 @@
 // a++
 
 
-console.log('1')
-setTimeout(()=>{
-    console.log('5')
-},0)
-new Promise((resolve, reject)=> {
-    console.log('2')
-    return resolve(4)
-}).then((res)=> {
-    console.log(res)
-    return new Promise(function (resolve, reject){
-        setTimeout(function (){
-            resolve(6)
-        },0)
-    })
-}).then((res)=>console.log(res))
-console.log('3')
+// console.log('1')
+// setTimeout(()=>{
+//     console.log('5')
+// },0)
+// new Promise((resolve, reject)=> {
+//     console.log('2')
+//     return resolve(4)
+// }).then((res)=> {
+//     console.log(res)
+//     return new Promise(function (resolve, reject){
+//         setTimeout(function (){
+//             resolve(6)
+//         },0)
+//     })
+// }).then((res)=>console.log(res))
+// console.log('3')
 // такая последовательность если delay у сеттаймаутов одинаковый, если у сеттаймаута 5 больше delay,он выполнится поздее
 
 
