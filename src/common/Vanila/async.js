@@ -47,3 +47,14 @@
 //     return resolve(2)
 // }).then(()=> console.log('4'))
 // console.log('3')
+
+p.then(()=>{
+    p.then(()=>{
+        console.log('C')
+    })
+    console.log('A')
+})
+p.then(()=>{
+    console.log('B')
+})
+// A B C
