@@ -40,3 +40,10 @@
 // var a = 0
 // ajax('url...', result)
 // a++
+
+console.log('1')
+new Promise((resolve, reject)=> {
+    console.log('2')
+    return resolve(2)
+}).then(()=> console.log('4'))
+console.log('3')
