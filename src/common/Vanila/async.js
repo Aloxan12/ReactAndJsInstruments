@@ -66,6 +66,6 @@
 // A B C
 
 
-const p = new Promise(function (resolve, reject){return resolve(42)})
-p.then(res => console.log(res) ).finally(()=> console.log('fin')).then((res)=> console.log(res))
+// const p = new Promise(function (resolve, reject){return resolve(42)})
+// p.then(res => console.log(res) ).finally(()=> console.log('fin')).then((res)=> console.log(res))
 // 42 fin undefined
